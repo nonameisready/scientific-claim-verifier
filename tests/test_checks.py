@@ -84,3 +84,20 @@ def test_vague_system_sorts_below_a_checkable_one():
     vague = [Claim("v", "vague", "orbital_relation", "consistent with expectations")]
     rows = leaderboard({"vague": vague, "grounded": good})
     assert rows[0]["system"] == "grounded"
+
+
+def test_a_self_contradiction_is_charged_to_both_claims():
+    # Each claim is flawless on its own, so only the submission-level check
+    # sees the problem -- and it has to reach the claim rate, or a system can
+    # contradict itself and still show a perfect one.
+    from verifier.checks import Claim as C
+
+    claims = [
+        C("x", "s", "stellar_property", "", {"total_mass": 0.89},
+          {"total_mass": "msun"}, subject="Kepler-16"),
+        C("y", "s", "stellar_property", "", {"total_mass": 1.35},
+          {"total_mass": "msun"}, subject="Kepler-16"),
+    ]
+    r = score_system(claims)
+    assert r["checkable_rate"] == 1.0
+    assert r["claim_pass_rate"] == 0.0

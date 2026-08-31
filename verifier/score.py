@@ -10,6 +10,13 @@ whose claims are rich enough to be wrong.
 submission below the floor is flagged. Without it, emitting vague claims is
 the dominant strategy -- the same failure mode the question-discovery work
 found when broad questions farmed engagement.
+
+Two pass rates are reported because they weight differently.
+`consistency_pass_rate` is over check instances, so a claim rich enough to
+trip five checks counts five times; `claim_pass_rate` is over claims, so it
+does not move when two checks happen to test overlapping physics. Read them
+together: a gap between them says the failures are concentrated in a few
+heavily-checked claims.
 """
 
 from __future__ import annotations
@@ -19,37 +26,57 @@ from collections import defaultdict
 from dataclasses import asdict
 from pathlib import Path
 
-from .checks import Claim, Verdict, verify
+from .checks import Claim, Verdict, verify, verify_submission
 
 CHECKABLE_FLOOR = 0.5
 
 
 def load_claims(path: Path) -> list[Claim]:
+    """Read a JSONL submission, ignoring fields the verifier does not consume."""
     claims = []
     for line in Path(path).open():
         line = line.strip()
         if line:
-            claims.append(Claim(**json.loads(line)))
+            claims.append(Claim.from_dict(json.loads(line)))
     return claims
 
 
 def score_system(claims: list[Claim]) -> dict:
     per_check: dict[str, list[bool]] = defaultdict(list)
     applicable, total = 0, 0
+    clean_claims = 0
     failures = []
 
+    # Submission-level checks see the whole set at once, so they are scored
+    # per conflict group rather than per claim. A group's verdict is charged
+    # back to every claim in it: a system contradicting itself has two claims
+    # at fault and no way to say which. They cannot make a claim checkable
+    # that no single-claim check could reach, so `checkable_rate` is
+    # unaffected either way.
+    charged: dict[str, list[Verdict]] = defaultdict(list)
+    for v in verify_submission(claims):
+        if v.passed is None:
+            continue
+        per_check[v.check].append(v.passed)
+        if not v.passed:
+            failures.append({"claim_id": ",".join(v.claim_ids or ()), **asdict(v)})
+            for claim_id in v.claim_ids or ():
+                charged[claim_id].append(v)
+
     for claim in claims:
-        verdicts = verify(claim)
         any_applicable = False
-        for v in verdicts:
+        any_failed = bool(charged[claim.claim_id])
+        for v in verify(claim):
             if v.passed is None:
                 continue
             any_applicable = True
             per_check[v.check].append(v.passed)
             if not v.passed:
+                any_failed = True
                 failures.append({"claim_id": claim.claim_id, **asdict(v)})
         total += 1
         applicable += int(any_applicable)
+        clean_claims += int(any_applicable and not any_failed)
 
     def rate(values: list[bool]) -> float | None:
         return round(sum(values) / len(values), 4) if values else None
@@ -62,6 +89,7 @@ def score_system(claims: list[Claim]) -> dict:
         "checkable_rate": checkable,
         "below_checkable_floor": checkable < CHECKABLE_FLOOR,
         "consistency_pass_rate": rate(all_results),
+        "claim_pass_rate": round(clean_claims / applicable, 4) if applicable else None,
         "per_check": {k: {"n": len(v), "pass_rate": rate(v)} for k, v in sorted(per_check.items())},
         "failures": failures,
     }

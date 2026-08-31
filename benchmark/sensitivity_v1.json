@@ -1,0 +1,1216 @@
+{
+  "claim_set": "claims_v1.jsonl",
+  "summary": {
+    "n_claims": 62,
+    "counts": {
+      "consistent": {
+        "pass": 41
+      },
+      "inconsistent": {
+        "fail": 16
+      },
+      "consistent_but_refuted": {
+        "pass": 5
+      }
+    },
+    "false_fail_rate": 0.0,
+    "false_fail_upper_95": 0.0705,
+    "false_pass_rate": 0.0,
+    "false_pass_upper_95": 0.1707,
+    "detection_rate": 1.0,
+    "unchecked_rate": 0.0,
+    "expected_check_attribution": 1.0,
+    "blind_spot_rate": 1.0,
+    "caught_by_check": {
+      "cross_claim_consistency": 2,
+      "dimensional_consistency": 2,
+      "energy_angular_momentum": 3,
+      "kepler_third_law": 4,
+      "numerical_consistency": 4,
+      "physical_bounds": 3,
+      "units_declared": 2
+    },
+    "disagreements": []
+  },
+  "per_claim": [
+    {
+      "claim_id": "a001",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a002",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a003",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 7,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a004",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a005",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a006",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a007",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a008",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a009",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a010",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a011",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a012",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a013",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a014",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a015",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 6,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a016",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a017",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a018",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a019",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a020",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a021",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a022",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a023",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a024",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a025",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a026",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a027",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a028",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a029",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a030",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a031",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a032",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a033",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a034",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 7,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "energy_angular_momentum",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a035",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 7,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "energy_angular_momentum",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a036",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 6,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a037",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 4,
+      "checks_applied": [
+        "dimensional_consistency",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a038",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "dimensional_consistency",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a039",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 2,
+      "checks_applied": [
+        "limiting_case",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a040",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 1,
+      "checks_applied": [
+        "dimensional_consistency"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "a041",
+      "label": "consistent",
+      "error_type": null,
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "b001",
+      "label": "inconsistent",
+      "error_type": "unit_confusion",
+      "expected_check": "kepler_third_law",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "kepler_third_law",
+        "numerical_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "numerical_consistency: period**2 = 4*pi**2 * semi_major_axis**3 / (G * total_mass): left=12.4239, right=9.31785e-05, gap 1 over exponent 2; kepler_third_law: P=3.52475 yr vs 0.0096529 yr implied by a=0.04747 au, M=1.148 Msun"
+    },
+    {
+      "claim_id": "b002",
+      "label": "inconsistent",
+      "error_type": "order_of_magnitude",
+      "expected_check": "kepler_third_law",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "kepler_third_law",
+        "numerical_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "numerical_consistency: period**2 = 4*pi**2 * semi_major_axis**3 / (G * total_mass): left=0.0119933, right=0.000125, gap 0.9896 over exponent 2; kepler_third_law: P=0.109514 yr vs 0.0111803 yr implied by a=0.05 au, M=1 Msun"
+    },
+    {
+      "claim_id": "b003",
+      "label": "inconsistent",
+      "error_type": "decimal_slip",
+      "expected_check": "kepler_third_law",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "kepler_third_law",
+        "numerical_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "numerical_consistency: period**2 = 4*pi**2 * semi_major_axis**3 / (G * total_mass): left=0.0353759, right=3.53737, gap 0.99 over exponent 2; kepler_third_law: P=0.188085 yr vs 1.88079 yr implied by a=1.52368 au, M=1 Msun"
+    },
+    {
+      "claim_id": "b004",
+      "label": "inconsistent",
+      "error_type": "negative_mass",
+      "expected_check": "physical_bounds",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "kepler_third_law",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "kepler_third_law",
+        "physical_bounds"
+      ],
+      "expected_check_fired": true,
+      "detail": "physical_bounds: total_mass=-1.148 must be > 0; kepler_third_law: non-positive quantity"
+    },
+    {
+      "claim_id": "b005",
+      "label": "inconsistent",
+      "error_type": "unbound_eccentricity",
+      "expected_check": "energy_angular_momentum",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "energy_angular_momentum",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "energy_angular_momentum"
+      ],
+      "expected_check_fired": true,
+      "detail": "energy_angular_momentum: eccentricity 1.4 outside [0, 1) for a bound orbit"
+    },
+    {
+      "claim_id": "b006",
+      "label": "inconsistent",
+      "error_type": "negative_eccentricity",
+      "expected_check": "physical_bounds",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 2,
+      "checks_applied": [
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "physical_bounds"
+      ],
+      "expected_check_fired": true,
+      "detail": "physical_bounds: eccentricity=-0.3 must be >= 0"
+    },
+    {
+      "claim_id": "b007",
+      "label": "inconsistent",
+      "error_type": "sign_error",
+      "expected_check": "energy_angular_momentum",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "energy_angular_momentum",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "energy_angular_momentum"
+      ],
+      "expected_check_fired": true,
+      "detail": "energy_angular_momentum: energy 19.7392 vs -19.7392"
+    },
+    {
+      "claim_id": "b008",
+      "label": "inconsistent",
+      "error_type": "inconsistent_derived_quantity",
+      "expected_check": "energy_angular_momentum",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "energy_angular_momentum",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "energy_angular_momentum"
+      ],
+      "expected_check_fired": true,
+      "detail": "energy_angular_momentum: angular momentum 3 vs 6.28319"
+    },
+    {
+      "claim_id": "b009",
+      "label": "inconsistent",
+      "error_type": "dimensional_error",
+      "expected_check": "dimensional_consistency",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 1,
+      "checks_applied": [
+        "dimensional_consistency"
+      ],
+      "checks_failed": [
+        "dimensional_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "dimensional_consistency: left side is T^2, right side is L^-1 T^2"
+    },
+    {
+      "claim_id": "b010",
+      "label": "inconsistent",
+      "error_type": "dimensional_error",
+      "expected_check": "dimensional_consistency",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 1,
+      "checks_applied": [
+        "dimensional_consistency"
+      ],
+      "checks_failed": [
+        "dimensional_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "dimensional_consistency: left side is L T^-1, right side is L^2 T^-2"
+    },
+    {
+      "claim_id": "b011",
+      "label": "inconsistent",
+      "error_type": "arithmetic_error",
+      "expected_check": "numerical_consistency",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 4,
+      "checks_applied": [
+        "dimensional_consistency",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "numerical_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "numerical_consistency: escape_velocity**2 = 2 * G * total_mass / radius: left=8227.99, right=16978.3, gap 0.5154 over exponent 2"
+    },
+    {
+      "claim_id": "b012",
+      "label": "inconsistent",
+      "error_type": "out_of_range",
+      "expected_check": "physical_bounds",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 2,
+      "checks_applied": [
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "physical_bounds"
+      ],
+      "expected_check_fired": true,
+      "detail": "physical_bounds: albedo=1.35 must be <= 1"
+    },
+    {
+      "claim_id": "b013",
+      "label": "inconsistent",
+      "error_type": "unrecognised_unit",
+      "expected_check": "units_declared",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 2,
+      "checks_applied": [
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "units_declared"
+      ],
+      "expected_check_fired": true,
+      "detail": "units_declared: unrecognised units for ['period']"
+    },
+    {
+      "claim_id": "b014",
+      "label": "inconsistent",
+      "error_type": "missing_unit",
+      "expected_check": "units_declared",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 2,
+      "checks_applied": [
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "units_declared"
+      ],
+      "expected_check_fired": true,
+      "detail": "units_declared: missing units for ['semi_major_axis']"
+    },
+    {
+      "claim_id": "b015",
+      "label": "inconsistent",
+      "error_type": "cross_claim_contradiction",
+      "expected_check": "cross_claim_consistency",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "cross_claim_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "cross_claim_consistency: kepler-16: total_mass quoted as [0.89225, 1.35] (canonical units) across ['b015', 'b016']"
+    },
+    {
+      "claim_id": "b016",
+      "label": "inconsistent",
+      "error_type": "cross_claim_contradiction",
+      "expected_check": "cross_claim_consistency",
+      "outcome": "fail",
+      "as_expected": true,
+      "n_applied": 3,
+      "checks_applied": [
+        "cross_claim_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [
+        "cross_claim_consistency"
+      ],
+      "expected_check_fired": true,
+      "detail": "cross_claim_consistency: kepler-16: total_mass quoted as [0.89225, 1.35] (canonical units) across ['b015', 'b016']"
+    },
+    {
+      "claim_id": "c001",
+      "label": "consistent_but_refuted",
+      "error_type": "withdrawn_detection",
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "c002",
+      "label": "consistent_but_refuted",
+      "error_type": "refuted_detection",
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "c003",
+      "label": "consistent_but_refuted",
+      "error_type": "disputed_detection",
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "c004",
+      "label": "consistent_but_refuted",
+      "error_type": "nonexistent_object",
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    },
+    {
+      "claim_id": "c005",
+      "label": "consistent_but_refuted",
+      "error_type": "instrumental_artifact",
+      "expected_check": null,
+      "outcome": "pass",
+      "as_expected": true,
+      "n_applied": 5,
+      "checks_applied": [
+        "dimensional_consistency",
+        "kepler_third_law",
+        "numerical_consistency",
+        "physical_bounds",
+        "units_declared"
+      ],
+      "checks_failed": [],
+      "expected_check_fired": null,
+      "detail": ""
+    }
+  ]
+}
