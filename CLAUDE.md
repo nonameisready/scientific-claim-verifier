@@ -66,10 +66,26 @@ of its judge dependency with checks that have no rater.
 
 ## What exists now
 
-- `verifier/checks.py` -- four working checks: units declared, Kepler's third
-  law, energy/angular-momentum consistency, limiting-case degeneration.
+- `verifier/units.py` -- dimensions over (length, mass, time, temperature),
+  25 units with generous aliases, conversion into the canonical set
+  (au, Msun, yr, K).
+- `verifier/relations.py` -- a whitelisted AST interpreter that evaluates an
+  asserted relation twice, in dimensions and in numbers, plus the named
+  relation library (`kepler3`, `vis_viva`, `escape_velocity`, ...). Submitted
+  text is parsed, never executed.
+- `verifier/checks.py` -- seven per-claim checks and one submission-level
+  check: units declared, physical bounds, dimensional consistency, numerical
+  consistency, Kepler's third law, energy/angular-momentum consistency,
+  limiting-case degeneration, cross-claim consistency.
 - `verifier/score.py` -- per-system scoring and leaderboard ordering.
-- `tests/test_checks.py` -- 10 offline tests, no network or API key.
+- `verifier/sensitivity.py` + `scripts/measure_sensitivity.py` -- the
+  calibration stage.
+- `benchmark/claims_v1.jsonl` -- **the frozen claim set**: 62 labelled claims.
+  `benchmark/sensitivity_v1.json` is the frozen measurement,
+  `benchmark/README.md` the card that states its limits.
+- `tests/` -- 31 offline tests, no network or API key. `test_claim_set.py`
+  pins the calibration itself, so a change that moves the false-fail or
+  false-pass rate cannot land without the committed number moving with it.
 - `examples/submission_example.jsonl` -- a five-claim submission that
   exercises a pass, a Kepler violation, an unbound orbit, and a vague claim.
 
@@ -85,18 +101,55 @@ Two rules specific to this project:
   not belong in the verifier; put it in a separate, clearly-labelled tier.
 - **Every check states its tolerance and its inapplicability condition.** A
   check that silently passes when data is missing is worse than no check.
+- **When in doubt, decline.** A false fail costs more than a missed catch:
+  one wrongly-rejected submission from a serious group ends the benchmark. A
+  check that cannot distinguish a wrong claim from an unusual but legal one
+  returns `None` and says why.
+- **Never move a tolerance to make a label come out right.** When the frozen
+  set and the verifier disagree, fix the check or document the limit. Doing
+  the reverse is how a calibration becomes an advertisement.
+
+## Three decisions made while building the claim set
+
+Recorded because each was a choice between two defensible options, and the
+reasoning is not recoverable from the diff.
+
+6. **Three ground-truth classes, not two.** A withdrawn detection --
+   PSR B1829-10's planet, Le Verrier's Vulcan -- is arithmetically flawless
+   and wrong about the world. Labelling those `inconsistent` would report the
+   boundary of consistency checking as a defect in the verifier; leaving them
+   out of the set would hide the boundary. They are labelled
+   `consistent_but_refuted`, expected to pass, and measured separately as the
+   method's blind spot.
+
+7. **Rates ship with their upper bounds.** Zero false fails in 41 correct
+   claims is a false-fail rate below about 7%, not zero. `sensitivity.py`
+   computes a one-sided 95% Clopper-Pearson bound for each rate so the table
+   cannot overclaim by omission.
+
+8. **Cross-claim comparison is an allowlist.** Only quantities that are
+   properties of the subject are compared across claims. `radius` and `speed`
+   are configuration-dependent -- one claim's perihelion distance is not
+   another's mean orbital radius -- and a check that compared everything
+   sharing a name would reject correct pairs for eccentric orbits. The
+   failure mode of this check is a false fail, so it only compares what it
+   knows is comparable.
 
 ## Next steps
 
-1. Add checks with the widest reach per unit of work: dimensional consistency
-   of a stated relation, internal numerical consistency (do the quoted numbers
-   satisfy the quoted formula), and monotonicity/sign constraints.
-2. Freeze a claim set drawn from published astronomy results, including known
-   erroneous ones, so the verifier's own sensitivity can be measured.
-3. Seed the leaderboard by running available agents through it.
+1. **Get the false-pass rate measured against errors the author did not
+   choose.** The seeded errors and the checks currently share an author, so
+   0.0 is a floor on performance rather than an estimate of it. This is now
+   the weakest claim in the repository, and it is stated as such in
+   `benchmark/README.md`. Options: an adversarial set from someone else, or
+   errors mined from published errata.
+2. Seed the leaderboard by running available agents through the verifier.
+3. Monotonicity constraints, and more known limits for `limiting_case` --
+   the checks with reach left in them.
 4. Write the benchmark paper. It is the artifact that makes the leaderboard
    citable.
 
-Step 2 is the gate. Without a frozen claim set with known ground truth, there
-is no way to state the verifier's false-pass and false-fail rates -- and a
-verifier whose own error rate is unmeasured has no standing to rank anyone.
+The gate is cleared: the frozen claim set exists and the verifier's error
+rates are published with their bounds. What replaces it as the gate is item 1
+-- a leaderboard may be seeded before that lands, but no ranking should be
+announced while the only evidence of coverage is self-graded.

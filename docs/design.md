@@ -25,9 +25,18 @@ Per system:
 | --- | --- |
 | `n_claims` | claims submitted |
 | `checkable_rate` | fraction on which at least one check applied |
-| `consistency_pass_rate` | passes over applicable checks |
+| `consistency_pass_rate` | passes over applicable check instances |
+| `claim_pass_rate` | checkable claims with no failing check |
 | `per_check` | the same, split by check |
 | `below_checkable_floor` | `checkable_rate` under 0.5 |
+
+Two pass rates are reported because they weight differently. Checks overlap on
+purpose -- a claim citing `kepler3` is tested both by the dedicated Kepler
+check and by the general numbers-versus-formula check -- so
+`consistency_pass_rate`, which is over check instances, counts a richly
+specified claim more than a thin one. `claim_pass_rate` is over claims and
+does not move when two checks happen to test the same physics. A gap between
+them says the failures are concentrated in a few heavily-checked claims.
 
 Ordering: systems below the checkable floor sort last, then by
 `consistency_pass_rate`, then by `checkable_rate`.
@@ -42,43 +51,91 @@ named a specific object in 5% of its questions against 95–100% for the
 structure-first pipelines. Vagueness scores well on any metric that does not
 price it. `checkable_rate` prices it.
 
-## What must exist before any public ranking
+## Calibration: the verifier's own error rates
 
-**A frozen claim set with known ground truth**, including published results
-later shown to be wrong. Without it the verifier's own false-pass and
-false-fail rates are unknown, and a verifier with an unmeasured error rate has
-no standing to rank anyone. This is the same discipline the companion protocol
-applied to its judge: measure the instrument before trusting its output.
+**A frozen claim set with known ground truth** had to exist before any public
+ranking, including published results later shown to be wrong. Without it the
+verifier's own false-pass and false-fail rates are unknown, and a verifier
+with an unmeasured error rate has no standing to rank anyone. This is the same
+discipline the companion protocol applied to its judge: measure the instrument
+before trusting its output.
 
-Two rates to report:
+It exists: `benchmark/claims_v1.jsonl`, 62 labelled claims, measured by
+`scripts/measure_sensitivity.py` into `benchmark/sensitivity_v1.json`. Results
+and their limits are in `benchmark/README.md`.
 
-- **False pass** — the verifier clears a claim that is physically wrong.
-  Mostly a coverage problem: no check applied to the thing that was wrong.
+Three rates, because two are not enough:
+
+- **False pass** — the verifier clears a claim that is internally
+  inconsistent. A coverage problem: some check is missing, not wrong.
 - **False fail** — the verifier rejects a correct claim. Usually a units,
   tolerance, or convention problem, and far more damaging to adoption: one
   wrongly-failed submission from a serious group ends the benchmark's
-  credibility.
+  credibility. Every design choice that trades a catch for a decline is made
+  in this direction on purpose.
+- **Blind spot** — the verifier passes a claim that is arithmetically
+  self-consistent and wrong about the world. This is not an error rate. A
+  withdrawn detection whose orbit is perfectly Keplerian cannot be reached by
+  any consistency check, however many are added; counting it as a false pass
+  would report the boundary of the method as a defect in it, and dropping such
+  claims from the set would hide the boundary. They are labelled
+  `consistent_but_refuted`, expected to pass, and measured separately.
 
-Tolerances are part of the specification and must be frozen with the claim
-set, not tuned afterwards.
+The point estimates are published with one-sided 95% upper bounds. Zero false
+fails in 41 correct claims is a false-fail rate below about 7%, not a
+false-fail rate of zero, and the table says so.
 
-## Roadmap of checks
+Tolerances are part of the specification and are frozen with the claim set,
+not tuned afterwards. When a claim's label and the verifier's verdict
+disagreed during construction, the resolution was to fix the check or to
+document the limit -- never to move a tolerance until the label came out
+right. One check changed as a result: the residual of a numerical relation is
+now divided by the exponent of a lone quantity on either side, because
+`P**2 = a**3/(G M)` and `P = sqrt(a**3/(G M))` are the same claim and were
+being held to different tolerances.
 
-Ordered by reach per unit of work.
+A claim set is frozen once. Corrections ship as `claims_v2.jsonl`.
+
+## The checks
+
+Ordered by reach per unit of work. The first five are implemented.
 
 1. **Dimensional consistency of a stated relation** — parse the asserted
    formula, verify both sides carry the same dimensions. Applies to every
-   quantitative claim in any field.
+   quantitative claim in any field, and needs no measurements at all: a law
+   written with the wrong exponent is refutable from the law alone.
 2. **Internal numerical consistency** — do the quoted numbers actually satisfy
    the quoted formula? Catches transcription and arithmetic errors, which are
-   common and cheap to detect.
-3. **Sign and monotonicity constraints** — a mass that came out negative, a
-   probability above one, a cross-section that grows without bound.
-4. **Limiting-case degeneration** — already implemented; extend to more known
-   limits.
+   common and cheap to detect. Evaluated in the canonical unit set, so a claim
+   in days and kilometres meets the same arithmetic as one in years and au.
+3. **Sign and bound constraints** — a mass that came out negative, an
+   eccentricity below zero, an albedo above one. Only bounds that follow from
+   a quantity's definition are enforced; a bound that is a matter of
+   convention would generate false fails.
+4. **Limiting-case degeneration** — extend to more known limits.
 5. **Cross-claim consistency** — do a system's own claims contradict each
    other across a submission? A system asserting two incompatible masses for
-   one object has failed regardless of which is right.
+   one object has failed regardless of which is right. Compared over an
+   allowlist of subject invariants rather than every shared quantity name:
+   one claim's perihelion distance is not another's mean orbital radius, and
+   for an eccentric orbit a name-matching check would reject a correct pair.
+6. **Monotonicity constraints** — a cross-section that grows without bound, a
+   fitted relation that reverses sign outside its data. Not yet implemented.
+
+### How a relation is checked twice
+
+A claim may state its relation literally (`period**2 = 4*pi**2 *
+semi_major_axis**3 / (G * total_mass)`) or cite one the benchmark names
+(`kepler3`, `vis_viva`, `specific_energy`, `escape_velocity`, …). The same
+string drives both the dimensional and the numerical check, so a relation
+cannot pass one by being written differently for the other. Library relations
+carry G explicitly, which makes them dimensionally complete while still
+reducing to the familiar form in canonical units where G = 4π².
+
+Submitted relations are parsed over a whitelisted subset of the expression
+grammar and evaluated by an interpreter over that AST. Nothing calls `eval` on
+submitted text, and a relation outside the supported grammar is declined as
+inapplicable rather than failed.
 
 ## Portability beyond astronomy
 
